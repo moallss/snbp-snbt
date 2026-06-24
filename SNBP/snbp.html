@@ -70,7 +70,8 @@
         filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
         z-index: 2;
         transition: all 0.3s ease;
-        margin-bottom: 20px;
+        /* PERBAIKAN: Hapus margin-bottom yang menyebabkan logo naik */
+        margin-bottom: 0;
       }
 
       .content-body {
@@ -219,9 +220,9 @@
       .mode-gagal .header-subtext {
         display: block;
       }
+      /* PERBAIKAN: Hapus positioning absolut yang menyebabkan logo naik */
       .mode-gagal .logo-snbp {
-        top: 50%;
-        transform: translateY(-50%);
+        /* Hapus top dan transform */
       }
 
       @media (max-width: 768px) {
