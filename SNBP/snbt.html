@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Pengumuman Hasil Seleksi SNBT SNPMB 2026</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        overflow-x: hidden;
+        width: 100%;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        background: linear-gradient(135deg, #5b8def 0%, #4ecdc4 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 20px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 100%;
+        max-width: 100vw;
+      }
+
+      .card {
+        background: rgba(140, 140, 140, 0.4);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        width: 100%;
+        max-width: 1000px;
+        /* PERUBAHAN: Border radius lebih kecil (lebih lancip) */
+        border-radius: 6px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        overflow: hidden;
+      }
+
+      .card-header {
+        padding: 30px 40px 20px 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .header-top {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .logo-snmpb {
+        height: 80px;
+        width: auto;
+      }
+
+      .header-title {
+        font-size: 20px;
+        font-weight: 900;
+        color: #ffffff;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .card-body {
+        padding: 20px 40px 30px 40px;
+        display: flex;
+        gap: 40px;
+        align-items: flex-start;
+      }
+
+      .left-col {
+        flex: 0 0 350px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .qr-box {
+        background: white;
+        padding: 12px;
+        /* PERUBAHAN: Border radius lebih kecil (lebih lancip) */
+        border-radius: 6px;
+        width: 350px;
+        height: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      .qr-img {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      .right-col {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+      }
+
+      .data-row {
+        display: flex;
+        margin-bottom: 12px;
+        font-size: 15px;
+        align-items: baseline;
+      }
+
+      .data-label {
+        width: 140px;
+        color: #ffffff;
+        font-weight: 400;
+        flex-shrink: 0;
+      }
+
+      .data-separator {
+        width: 20px;
+        color: #ffffff;
+        text-align: center;
+        font-weight: 400;
+        flex-shrink: 0;
+      }
+
+      .data-value {
+        flex: 1;
+        font-weight: 700;
+        color: #ffffff;
+        text-transform: uppercase;
+        word-break: break-word;
+      }
+
+      .status-area {
+        margin-top: 25px;
+      }
+
+      .status-text {
+        font-size: 15px;
+        line-height: 1.6;
+        color: #ffffff;
+        margin-bottom: 15px;
+        font-weight: 400;
+      }
+
+      .status-text strong {
+        font-weight: 700;
+      }
+
+      .status-link {
+        color: #0066ff;
+        text-decoration: underline;
+        font-weight: 400;
+      }
+
+      .btn-download-wrapper {
+        margin-top: 25px;
+        width: 100%;
+      }
+
+      .btn-action {
+        display: block;
+        width: 100%;
+        padding: 14px;
+        text-align: center;
+        text-decoration: none;
+        /* PERUBAHAN: Border radius lebih kecil */
+        border-radius: 4px;
+        font-weight: 500;
+        font-size: 14px;
+        transition: all 0.2s;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-download {
+        background: #17a2b8;
+        color: white;
+      }
+
+      .btn-download:hover {
+        background: #138496;
+      }
+
+      .card-footer {
+        padding: 0 40px 30px 40px;
+      }
+
+      .btn-back {
+        background: #28a745;
+        color: white;
+      }
+
+      .btn-back:hover {
+        background: #218838;
+      }
+
+      /* Mode Gagal */
+      .mode-gagal .left-col {
+        display: none;
+      }
+      .mode-gagal .btn-download-wrapper {
+        display: none;
+      }
+
+      .mode-gagal .card-body {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        min-height: 250px;
+      }
+
+      .mode-gagal .data-section {
+        display: none;
+      }
+
+      .mode-gagal .status-area {
+        margin-top: 0;
+      }
+
+      .mode-gagal .status-text-main {
+        font-size: 16px;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 20px;
+        line-height: 1.5;
+      }
+
+      .mode-gagal .status-text-motivation {
+        font-size: 20px;
+        color: #ffffff;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .card-header {
+          padding: 25px 20px 15px 20px;
+        }
+
+        .header-top {
+          justify-content: center;
+          margin-bottom: 15px;
+        }
+
+        .card-body {
+          flex-direction: column;
+          padding: 20px;
+          align-items: center;
+        }
+
+        .left-col {
+          width: 100%;
+          margin-bottom: 25px;
+        }
+
+        .qr-box {
+          width: 100%;
+          max-width: 350px;
+          height: auto;
+          aspect-ratio: 1 / 1;
+        }
+
+        .qr-img {
+          width: 100%;
+          height: 100%;
+        }
+
+        .right-col {
+          width: 100%;
+        }
+
+        .data-row {
+          flex-direction: column;
+          gap: 4px;
+          margin-bottom: 18px;
+        }
+
+        .data-separator {
+          display: none;
+        }
+        .data-label {
+          width: 100%;
+        }
+
+        .card-footer {
+          padding: 0 20px 25px 20px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 15px 10px;
+        }
+        .header-title {
+          font-size: 16px;
+        }
+        .logo-snmpb {
+          height: 60px;
+        }
+        .data-row {
+          font-size: 14px;
+        }
+        .qr-box {
+          max-width: 280px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card" id="mainCard">
+      <div class="card-header">
+        <div class="header-top">
+          <div class="logo-container">
+            <img
+              src="Logo Snbt/snbt.png"
+              alt="Logo SNPMB"
+              class="logo-snmpb"
+              onerror="
+                this.src = 'https://snbt.brin.go.id/assets/images/logo-snbt.png'
+              "
+            />
+          </div>
+        </div>
+        <div class="header-title">PENGUMUMAN HASIL SELEKSI SNBT SNPMB 2026</div>
+      </div>
+
+      <div class="card-body">
+        <div class="left-col">
+          <div class="qr-box">
+            <img
+              src="Code qr/CodeQR.png"
+              alt="QR Code"
+              class="qr-img"
+              id="qrCodeImg"
+            />
+          </div>
+        </div>
+
+        <div class="right-col">
+          <div class="data-section" id="dataSection">
+            <div class="data-row">
+              <div class="data-label">Nomor peserta</div>
+              <div class="data-separator">:</div>
+              <div class="data-value" id="valNomor">-</div>
+            </div>
+            <div class="data-row">
+              <div class="data-label">Nama</div>
+              <div class="data-separator">:</div>
+              <div class="data-value" id="valNama">-</div>
+            </div>
+            <div class="data-row">
+              <div class="data-label">Tanggal lahir</div>
+              <div class="data-separator">:</div>
+              <div class="data-value" id="valTTL">-</div>
+            </div>
+          </div>
+
+          <div id="lulusContent" class="status-area">
+            <p class="status-text">
+              <strong
+                >Selamat! Anda dinyatakan lulus seleksi SNBT SNPMB 2026
+                di</strong
+              >
+            </p>
+
+            <div class="data-row">
+              <div class="data-label">PTN</div>
+              <div class="data-separator">:</div>
+              <div class="data-value" id="valPTN1">-</div>
+            </div>
+            <div class="data-row">
+              <div class="data-label">Program Studi</div>
+              <div class="data-separator">:</div>
+              <div class="data-value" id="valProdi1">-</div>
+            </div>
+
+            <p class="status-text" style="margin-top: 20px; font-size: 14px">
+              Persyaratan pendaftaran ulang calon mahasiswa baru dapat dilihat
+              di <a href="#" class="status-link">sini</a>.<br />
+              Anda dapat mencetak kembali Kartu Tanda Peserta UTBK-SNBT 2026 di
+              <a href="#" class="status-link">sini</a>.
+            </p>
+          </div>
+
+          <div class="btn-download-wrapper" id="btnDownloadWrapper">
+            <a href="#" class="btn-action btn-download" id="btnDownload"
+              >UNDUH PENGUMUMAN KETUA SNPMB (PDF)</a
+            >
+          </div>
+
+          <div id="gagalContent" class="status-area" style="display: none">
+            <p class="status-text-main" id="gagalText"></p>
+            <p class="status-text-motivation">
+              JANGAN PUTUS ASA DAN TETAP SEMANGAT!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <a href="ModeJalur.html" class="btn-action btn-back"
+          >Kembali ke pencarian</a
+        >
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const params = new URLSearchParams(window.location.search);
+        const mode = params.get("mode");
+        const card = document.getElementById("mainCard");
+
+        const nomor = params.get("nomor") || "-";
+        const nama = params.get("nama") || "-";
+        const ttl = params.get("ttl") || "-";
+
+        document.getElementById("valNomor").innerText = nomor;
+        document.getElementById("valNama").innerText = nama;
+        document.getElementById("valTTL").innerText = ttl;
+
+        if (mode === "lulus") {
+          document.getElementById("lulusContent").style.display = "block";
+          document.getElementById("gagalContent").style.display = "none";
+          document.getElementById("dataSection").style.display = "block";
+          document.getElementById("btnDownloadWrapper").style.display = "block";
+
+          document.getElementById("valPTN1").innerText =
+            params.get("ptn1") || "-";
+          document.getElementById("valProdi1").innerText =
+            params.get("prodi1") || "-";
+        } else {
+          card.classList.add("mode-gagal");
+          document.getElementById("lulusContent").style.display = "none";
+          document.getElementById("gagalContent").style.display = "block";
+          document.getElementById("dataSection").style.display = "none";
+          document.getElementById("btnDownloadWrapper").style.display = "none";
+
+          document.getElementById("gagalText").innerHTML =
+            `Peserta atas nama <strong>${nama}</strong> dengan nomor peserta <strong>${nomor}</strong> dinyatakan tidak lulus seleksi SNBT SNPMB 2026.`;
+        }
+      });
+    </script>
+  </body>
+</html>

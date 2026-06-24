@@ -1,0 +1,814 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Generator Pengumuman SNBT 2026</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        overflow-x: hidden;
+        width: 100%;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        background: linear-gradient(
+          135deg,
+          #0a0e27 0%,
+          #1a1f3a 50%,
+          #0d1235 100%
+        );
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 100%;
+        max-width: 100vw;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+          radial-gradient(
+            circle at 20% 50%,
+            rgba(0, 212, 255, 0.08) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 80%,
+            rgba(0, 123, 255, 0.08) 0%,
+            transparent 50%
+          );
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .glass-form {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        max-width: 600px;
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(30px) saturate(200%);
+        -webkit-backdrop-filter: blur(30px) saturate(200%);
+        padding: 35px 30px;
+        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow:
+          0 40px 80px rgba(0, 0, 0, 0.5),
+          inset 0 1px 0 rgba(255, 255, 255, 0.15),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+      }
+
+      .glass-form::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
+        z-index: 2;
+      }
+
+      .form-content {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+      }
+
+      .form-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .form-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #00d4ff, #007bff);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 15px;
+        box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+      }
+
+      .form-icon svg {
+        width: 32px;
+        height: 32px;
+        fill: white;
+      }
+
+      h2 {
+        font-weight: 900;
+        letter-spacing: 1px;
+        font-size: clamp(18px, 2.5vw, 24px);
+        color: #ffffff;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      .form-subtitle {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: 400;
+      }
+
+      .mode-toggle-container {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 28px;
+        background: rgba(0, 0, 0, 0.3);
+        padding: 5px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .mode-btn {
+        flex: 1;
+        padding: 12px;
+        border: none;
+        border-radius: 10px;
+        font-weight: 800;
+        font-size: 13px;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: transparent;
+        color: #6c7a89;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+      }
+
+      .mode-btn svg {
+        width: 16px;
+        height: 16px;
+        fill: currentColor;
+      }
+
+      .mode-btn.active-lulus {
+        background: linear-gradient(135deg, #0056b3, #007bff);
+        color: white;
+        box-shadow: 0 4px 20px rgba(0, 123, 255, 0.4);
+      }
+
+      .mode-btn.active-gagal {
+        background: linear-gradient(135deg, #921a1a, #d32f2f);
+        color: white;
+        box-shadow: 0 4px 20px rgba(211, 47, 47, 0.4);
+      }
+
+      .form-group {
+        margin-bottom: 18px;
+        width: 100%;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        color: #8892b0;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      input {
+        width: 100%;
+        padding: 12px 14px;
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        color: white;
+        font-size: 14px;
+        font-family: inherit;
+        transition: all 0.3s;
+        max-width: 100%;
+      }
+
+      input[type="date"]::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+        opacity: 0.7;
+        cursor: pointer;
+      }
+
+      input[type="date"]::-webkit-calendar-picker-indicator:hover {
+        opacity: 1;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: #00d4ff;
+        background: rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.15);
+      }
+
+      /* Style khusus untuk input angka */
+      input.input-angka {
+        letter-spacing: 2px;
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+      }
+
+      input.input-angka::placeholder {
+        letter-spacing: 1px;
+        font-weight: 400;
+      }
+
+      .input-wrapper {
+        display: flex;
+        gap: 8px;
+        width: 100%;
+      }
+
+      .input-wrapper input {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .btn-random {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        width: 44px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        flex-shrink: 0;
+      }
+
+      .btn-random:hover {
+        background: rgba(0, 212, 255, 0.15);
+        border-color: rgba(0, 212, 255, 0.3);
+        transform: rotate(15deg);
+      }
+
+      .btn-random svg {
+        width: 20px;
+        height: 20px;
+        stroke: #8892b0;
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        transition: stroke 0.2s;
+      }
+
+      .btn-random:hover svg {
+        stroke: #00d4ff;
+      }
+
+      @keyframes shakeDice {
+        0% {
+          transform: rotate(0deg) scale(1);
+        }
+        25% {
+          transform: rotate(-15deg) scale(0.9);
+        }
+        50% {
+          transform: rotate(15deg) scale(1.1);
+        }
+        75% {
+          transform: rotate(-10deg) scale(0.95);
+        }
+        100% {
+          transform: rotate(0deg) scale(1);
+        }
+      }
+
+      .btn-random.animating svg {
+        animation: shakeDice 0.4s ease-in-out;
+        stroke: #00d4ff;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        width: 100%;
+      }
+
+      #lulusFields {
+        background: rgba(0, 212, 255, 0.05);
+        border: 1px solid rgba(0, 212, 255, 0.2);
+        padding: 20px;
+        border-radius: 14px;
+        margin-bottom: 22px;
+        display: none;
+        animation: slideDown 0.3s ease forwards;
+        width: 100%;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .section-label {
+        font-size: 12px;
+        font-weight: 800;
+        color: #00d4ff;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+      }
+
+      .sub-section-label {
+        font-size: 11px;
+        font-weight: 700;
+        color: rgba(0, 212, 255, 0.8);
+        margin-bottom: 12px;
+        margin-top: 5px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .btn-generate {
+        width: 100%;
+        padding: 16px;
+        background: linear-gradient(135deg, #0099cc, #00d4ff);
+        color: white;
+        border: none;
+        border-radius: 14px;
+        font-size: 15px;
+        font-weight: 900;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s;
+        margin-top: 8px;
+        box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn-generate:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 40px rgba(0, 212, 255, 0.5);
+        filter: brightness(1.1);
+      }
+
+      .btn-generate::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: 0.5s;
+      }
+
+      .btn-generate:hover::after {
+        left: 100%;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 15px;
+        }
+        .glass-form {
+          padding: 30px 25px;
+          border-radius: 20px;
+        }
+        .form-icon {
+          width: 55px;
+          height: 55px;
+        }
+        .form-icon svg {
+          width: 28px;
+          height: 28px;
+        }
+        h2 {
+          font-size: 20px;
+        }
+        .grid-2 {
+          grid-template-columns: 1fr;
+          gap: 15px;
+        }
+        #lulusFields {
+          padding: 18px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 10px;
+        }
+        .glass-form {
+          padding: 25px 20px;
+          border-radius: 18px;
+        }
+        .form-header {
+          margin-bottom: 25px;
+        }
+        .form-icon {
+          width: 50px;
+          height: 50px;
+        }
+        .form-icon svg {
+          width: 26px;
+          height: 26px;
+        }
+        h2 {
+          font-size: 18px;
+        }
+        .form-subtitle {
+          font-size: 12px;
+        }
+        .mode-toggle-container {
+          margin-bottom: 22px;
+          padding: 4px;
+        }
+        .mode-btn {
+          padding: 10px;
+          font-size: 12px;
+        }
+        .form-group {
+          margin-bottom: 15px;
+        }
+        input {
+          padding: 11px 12px;
+          font-size: 13px;
+        }
+        .btn-random {
+          width: 40px;
+        }
+        .btn-random svg {
+          width: 18px;
+          height: 18px;
+        }
+        #lulusFields {
+          padding: 15px;
+          margin-bottom: 18px;
+        }
+        .section-label {
+          font-size: 11px;
+          margin-bottom: 12px;
+        }
+        .btn-generate {
+          padding: 14px;
+          font-size: 14px;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .glass-form {
+          padding: 20px 15px;
+        }
+        h2 {
+          font-size: 16px;
+        }
+        .mode-btn {
+          padding: 9px;
+          font-size: 11px;
+        }
+        input {
+          padding: 10px 11px;
+          font-size: 12px;
+        }
+      }
+
+      @media (max-height: 600px) and (orientation: landscape) {
+        body {
+          padding: 10px;
+          align-items: flex-start;
+        }
+        .glass-form {
+          padding: 20px;
+        }
+        .form-header {
+          margin-bottom: 15px;
+        }
+        .form-icon {
+          width: 40px;
+          height: 40px;
+          margin-bottom: 8px;
+        }
+        .form-icon svg {
+          width: 22px;
+          height: 22px;
+        }
+        h2 {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="glass-form">
+      <div class="form-content">
+        <div class="form-header">
+          <div class="form-icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"
+              />
+            </svg>
+          </div>
+          <h2>Generator SNBT 2026</h2>
+          <p class="form-subtitle">Form Pengisian Data Pengumuman SNBT</p>
+        </div>
+
+        <form id="snbtForm" onsubmit="generatePreview(event)">
+          <div class="mode-toggle-container">
+            <button
+              type="button"
+              class="mode-btn active-lulus"
+              id="btnLulus"
+              onclick="setMode('lulus')"
+            >
+              <svg viewBox="0 0 24 24">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+              </svg>
+              LULUS
+            </button>
+            <button
+              type="button"
+              class="mode-btn"
+              id="btnGagal"
+              onclick="setMode('gagal')"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
+              </svg>
+              TIDAK LULUS
+            </button>
+          </div>
+
+          <div class="grid-2">
+            <div class="form-group">
+              <label
+                >Nomor Peserta
+                <span style="font-size: 10px; opacity: 0.5"
+                  >(Klik 🎲)</span
+                ></label
+              >
+              <div class="input-wrapper">
+                <input
+                  type="text"
+                  id="nomorPeserta"
+                  placeholder="26-9990-010001"
+                  required
+                />
+                <button
+                  type="button"
+                  class="btn-random"
+                  onclick="randomize('nomorPeserta', this)"
+                  title="Generate Random Nomor Peserta"
+                >
+                  <svg viewBox="0 0 24 24">
+                    <rect
+                      x="2"
+                      y="2"
+                      width="20"
+                      height="20"
+                      rx="5"
+                      ry="5"
+                    ></rect>
+                    <circle
+                      cx="8"
+                      cy="8"
+                      r="1.5"
+                      fill="currentColor"
+                      stroke="none"
+                    ></circle>
+                    <circle
+                      cx="16"
+                      cy="16"
+                      r="1.5"
+                      fill="currentColor"
+                      stroke="none"
+                    ></circle>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Tanggal Lahir</label>
+              <input type="date" id="ttlPicker" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Nama Lengkap Peserta</label>
+            <input
+              type="text"
+              id="nama"
+              placeholder="Contoh: NAMA CONTOH 1"
+              required
+            />
+          </div>
+
+          <div id="lulusFields">
+            <div class="section-label">PEMILIHAN 1</div>
+
+            <!-- PTN: Kode dan Nama Terpisah -->
+            <div class="sub-section-label">Perguruan Tinggi</div>
+            <div class="grid-2">
+              <div class="form-group">
+                <label
+                  >Kode PTN
+                  <span style="font-size: 10px; opacity: 0.5"
+                    >(Angka saja)</span
+                  ></label
+                >
+                <input
+                  type="text"
+                  id="kodePTN"
+                  class="input-angka"
+                  placeholder="096"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  maxlength="5"
+                  oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>Nama PTN</label>
+                <input
+                  type="text"
+                  id="namaPTN"
+                  placeholder="UNIVERSITAS BRAWIJAYA"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Program Studi: Kode dan Nama Terpisah -->
+            <div class="sub-section-label">Program Studi</div>
+            <div class="grid-2">
+              <div class="form-group">
+                <label
+                  >Kode Prodi
+                  <span style="font-size: 10px; opacity: 0.5"
+                    >(Angka saja)</span
+                  ></label
+                >
+                <input
+                  type="text"
+                  id="kodeProdi"
+                  class="input-angka"
+                  placeholder="0961020"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  maxlength="8"
+                  oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>Nama Program Studi</label>
+                <input
+                  type="text"
+                  id="namaProdi"
+                  placeholder="TEKNIK INFORMATIKA (Sarjana)"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-generate">
+            GENERATE PREVIEW SNBT
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      let currentMode = "lulus";
+
+      function initForm() {
+        setMode("lulus");
+      }
+      document.addEventListener("DOMContentLoaded", initForm);
+
+      function setMode(mode) {
+        currentMode = mode;
+        const btnLulus = document.getElementById("btnLulus");
+        const btnGagal = document.getElementById("btnGagal");
+        const lulusFields = document.getElementById("lulusFields");
+        const kodePTN = document.getElementById("kodePTN");
+        const namaPTN = document.getElementById("namaPTN");
+        const kodeProdi = document.getElementById("kodeProdi");
+        const namaProdi = document.getElementById("namaProdi");
+
+        if (mode === "lulus") {
+          btnLulus.className = "mode-btn active-lulus";
+          btnGagal.className = "mode-btn";
+          lulusFields.style.display = "block";
+          kodePTN.required = true;
+          namaPTN.required = true;
+          kodeProdi.required = true;
+          namaProdi.required = true;
+        } else {
+          btnLulus.className = "mode-btn";
+          btnGagal.className = "mode-btn active-gagal";
+          lulusFields.style.display = "none";
+          kodePTN.required = false;
+          namaPTN.required = false;
+          kodeProdi.required = false;
+          namaProdi.required = false;
+        }
+      }
+
+      function randomize(fieldId, btnElement) {
+        btnElement.classList.add("animating");
+        setTimeout(() => btnElement.classList.remove("animating"), 400);
+        const el = document.getElementById(fieldId);
+
+        const year = "26";
+        const code = Math.floor(1000 + Math.random() * 9000);
+        const seq = Math.floor(100000 + Math.random() * 900000);
+        el.value = `${year}-${code}-${seq}`;
+      }
+
+      function generatePreview(e) {
+        e.preventDefault();
+
+        const rawDate = document.getElementById("ttlPicker").value;
+        let formattedDate = "-";
+        if (rawDate) {
+          const [year, month, day] = rawDate.split("-");
+          formattedDate = `${day} - ${month} - ${year}`;
+        }
+
+        const params = new URLSearchParams();
+        params.set("mode", currentMode);
+        params.set("nomor", document.getElementById("nomorPeserta").value);
+        params.set("nama", document.getElementById("nama").value);
+        params.set("ttl", formattedDate);
+
+        if (currentMode === "lulus") {
+          const kodePTN = document.getElementById("kodePTN").value;
+          const namaPTN = document.getElementById("namaPTN").value;
+          const kodeProdi = document.getElementById("kodeProdi").value;
+          const namaProdi = document.getElementById("namaProdi").value;
+
+          params.set("ptn1", `${kodePTN} - ${namaPTN}`);
+          params.set("prodi1", `${kodeProdi} - ${namaProdi}`);
+        }
+
+        window.location.href = `snbt.html?${params.toString()}`;
+      }
+    </script>
+  </body>
+</html>
